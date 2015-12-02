@@ -1,0 +1,22 @@
+{
+  "name": "backbone-app",
+  "version": "1.0.0",
+  "description": "Backbone example application",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bjdixon/backbone-app/"
+  },
+  "author": "Brian Dixon (bjdixon)",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "backbone": "^1.1.2",
+    "backbone.localstorage": "^1.1.16",
+    "jquery": "^2.1.3",
+    "underscore": "^1.7.0"
+  }
+}
