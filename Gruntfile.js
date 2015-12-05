@@ -16,6 +16,17 @@ module.exports = function(grunt) {
         dest: 'js/lib/<%= pkg.name %>.js'
       }
     },
+    less: {
+      dist: {
+        options: {
+          compress: true,
+          optimization: 2
+        },
+        files: {
+          "css/main.css": "less/main.less"
+        }
+      }
+    },
     uglify: {
       options: {
         banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
@@ -38,8 +49,14 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      files: ['<%= jshint.files %>'],
-      tasks: ['jshint']
+      js: {
+        files: ['<%= jshint.files %>'],
+        tasks: ['jshint']
+      },
+      style: {
+        files: ['<%= less.files %>'],
+        tasks: ['less']
+      }
     }
   });
 
@@ -47,9 +64,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-less');
 
   grunt.registerTask('test', ['jshint']);
-
-  grunt.registerTask('default', ['jshint', 'concat', 'uglify']);
+  grunt.registerTask('default', ['jshint', 'less', 'concat', 'uglify']);
 
 };
