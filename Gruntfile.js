@@ -27,6 +27,19 @@ module.exports = function(grunt) {
         }
       }
     },
+    jade: {
+      compile: {
+        options: {
+          data: {
+            debug: true
+          },
+          pretty: true
+        },
+        files: {
+          "index.html": "templates/index.jade"
+        }
+      }
+    },
     uglify: {
       options: {
         banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
@@ -65,8 +78,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-contrib-jade');
 
   grunt.registerTask('test', ['jshint']);
-  grunt.registerTask('default', ['jshint', 'less', 'concat', 'uglify']);
+  grunt.registerTask('default', ['jshint', 'jade', 'less', 'concat', 'uglify']);
 
 };
