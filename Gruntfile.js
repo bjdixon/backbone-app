@@ -69,6 +69,10 @@ module.exports = function(grunt) {
       style: {
         files: ['<%= less.files %>'],
         tasks: ['less']
+      },
+      templates: {
+        files: ['<%= jade.files %>'],
+        tasks: ['jade']
       }
     }
   });
