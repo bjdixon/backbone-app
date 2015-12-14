@@ -17,6 +17,7 @@ app.PreferencesView = Backbone.View.extend({
   render: function() {
     this.$el.html( this.template( this.model.attributes ) );
     this.$input = this.$('.toggle');
+    this.$input.prop('checked', this.model.get('subscribed'));
     return this;
   },
 
