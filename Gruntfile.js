@@ -61,6 +61,15 @@ module.exports = function(grunt) {
         }
       }
     },
+    useminPrepare: {
+      html: 'index.html',
+      options: {
+        dest: '.'
+      }
+    },
+    usemin: {
+      html: 'index.html'
+    },
     watch: {
       js: {
         files: ['<%= jshint.files %>'],
@@ -83,8 +92,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-jade');
+  grunt.loadNpmTasks('grunt-usemin');
 
   grunt.registerTask('test', ['jshint']);
-  grunt.registerTask('default', ['jshint', 'jade', 'less', 'concat', 'uglify']);
+  grunt.registerTask('default', ['jshint', 'jade', 'less', 'useminPrepare', 'concat', 'uglify', 'usemin']);
 
 };

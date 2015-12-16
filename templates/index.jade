@@ -25,9 +25,11 @@ html(lang="en")
           strong Subscribed to <%= subscribed %> of <%= numberOfTopics %> topics
 
       script(src="js/lib/backbone-app.js")
+      // build:js js/dist.js
       script(src="js/models/topic.js")
       script(src="js/collections/topics.js")
       script(src="js/views/preferences.js")
       script(src="js/views/app.js")
       script(src="js/routers/router.js")
       script(src="js/app.js")
+      // endbuild
