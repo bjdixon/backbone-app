@@ -51,7 +51,7 @@ module.exports = function(grunt) {
       }
     },
     jshint: {
-      files: ['Gruntfile.js', 'js/**/*.js', '!<%= concat.dist.dest %>'],
+      files: ['Gruntfile.js', 'js/**/*.js', '!js/lib/*'],
       options: {
         globals: {
           jQuery: true,
@@ -59,6 +59,11 @@ module.exports = function(grunt) {
           module: true,
           document: true
         }
+      }
+    },
+    filerev: {
+      dist: {
+        src: ['js/dist.js', 'js/lib/backbone-app.js']
       }
     },
     useminPrepare: {
@@ -93,8 +98,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-jade');
   grunt.loadNpmTasks('grunt-usemin');
+  grunt.loadNpmTasks('grunt-filerev');
 
   grunt.registerTask('test', ['jshint']);
-  grunt.registerTask('default', ['jshint', 'jade', 'less', 'useminPrepare', 'concat', 'uglify', 'usemin']);
+  grunt.registerTask('default', ['jshint', 'jade', 'less', 'useminPrepare', 'concat', 'uglify', 'filerev', 'usemin']);
 
 };
